@@ -8,8 +8,14 @@ class Internet {
     specificChildElement(index) { return this.parent.$(`li:nth-child(${index})`)};
 
 
-    get firstLink() { return $('ul li:nth-child(1) a') };
-    link(index) { return $(`ul li:nth-child(${index}) a`) };
+    get firstLink() { return $('ul li:nth-child(1) a')};
+    link(index) { return $(`ul li:nth-child(${index}) a`)};
+
+    checkboxes(index) { return $(`#checkboxes input:nth-child(${index})`)};
+
+
+    get username() { return $('#username') }
+    get password() { return $('#password') }
 
 
 
@@ -28,8 +34,29 @@ class Internet {
         if (this.firstLink.isDisplayed() === true) {
             this.firstLink.click()
         }
-        browser.pause(5000);
+        //browser.pause(5000);
         this.h3Header.waitForDisplayed()
+    };
+
+    clickLink(index) {
+        this.link(index).waitForDisplayed()
+        this.link(index).click()
+    };
+
+    clickCheckbox(index) {
+        this.checkboxes(index).waitForDisplayed()
+        this.checkboxes(index).click()
+    };
+
+
+    enterUsername(text) {
+        this.username.waitForDisplayed()
+        this.username.setValue(text)
+    };
+
+    enterPassword(text) {
+        this.password.waitForDisplayed()
+        this.password.setValue(text)
     };
 
 };

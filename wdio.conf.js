@@ -174,8 +174,12 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    // before: function (capabilities, specs) {
-    // },
+     before: function (capabilities, specs) {
+            chai = require('chai');
+            assert = chai.assert;
+            should = chai.should();
+            expect = chai.expect;
+     },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
@@ -192,18 +196,18 @@ exports.config = {
     /**
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */
-     beforeTest: function () {
-         const chai = require('chai');
-         //const chaiWebdriver =  require('chai-webdriver').default;
+    //  beforeTest: function () {
+    //      const chai = require('chai');
+    //      const chaiWebdriver =  require('chai-webdriverio').default;
 
-         //chai.use(chaiWebdriver(browser));
+    //      chai.use(chaiWebdriver(browser));
 
-         global.assert = chai.assert;
-         global.should = chai.should;
-         global.expect = chai.expect;
+    //      global.assert = chai.assert;
+    //      global.should = chai.should;
+    //      global.expect = chai.expect;
 
 
-     },
+    //  },
     /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)
