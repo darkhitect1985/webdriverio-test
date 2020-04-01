@@ -14,9 +14,46 @@ class Internet {
     checkboxes(index) { return $(`#checkboxes input:nth-child(${index})`)};
 
 
-    get username() { return $('#username') }
-    get password() { return $('#password') }
+    get username() { return $('#username')};
+    get password() { return $('#password')};
 
+    figures(index) { return $(`.example .figure:nth-child(${index}) img`)};
+    figureDetails(index) { return $(`.example .figure:nth-child(${index}) .figcaption h5`)};
+
+    get target() { return $('.example #target')};
+    get result() { return $('.example #result')};
+
+    scrollToPageFooter() {
+        this.pageFooter.moveTo(1,1);
+    };
+    
+
+
+    clickTarget() {
+        this.target.waitForDisplayed()
+        this.target.click()
+    };
+
+
+    sendKeysToTarget(text) {
+        this.target.waitForDisplayed()
+        this.target.keys(text)
+    };
+
+    getResultText() {
+        this.result.waitForDisplayed()
+        return this.result.getText()
+    };
+
+    hoverOnFigure(index) {
+        this.figures(index).waitForDisplayed()
+        this.figures(index).moveTo(1, 1)
+    };
+
+    getFigureDetailsText(index) {
+        this.figureDetails(index).waitForDisplayed()
+        return this.figureDetails(index).getText()
+    };
 
 
     getLiText() {
