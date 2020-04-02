@@ -23,6 +23,68 @@ class Internet {
     get target() { return $('.example #target')};
     get result() { return $('.example #result')};
 
+
+
+    get hereLink() { return $('.example a')};
+
+
+    get iframeBody() { return $('#tinymce')};
+    get iframe() { return $('#mceu_27 #mce_0_ifr')};
+
+
+    get columnA() { return $('#column-a')};
+    get columnB() { return $('#column-b')};
+
+    get columnAHeader() { return $('#column-a header')};
+    get columnBHeader() { return $('#column-b header')};
+
+    get draggable() { return $('#draggable')};
+    get droppable() { return $('#droppable')};
+    get droppableParagraph() { return $('#droppable p')};
+
+    get dropdownMenu() { return $('#dropdown')};
+    get dropdownMenuOption1() { return $('#dropdown option:nth-child(2)')};
+    get dropdownMenuOption2() { return $('#dropdown option:nth-child(3)')};
+
+    javascriptAlertButton(index) { return $(`.example li:nth-child(${index}) button`)};
+
+    get exampleButton() { return $('.example button')};
+    deleteButton(index) { return $(`#elements button:nth-child(${index})`)};
+
+    get pageButton() { return $('#checkbox-example button')};
+
+    get enableButton() { return $('#input-example button')};
+    get inputEnabledField() { return $('#input-example input')};
+
+
+    dragDraggableToDroppable() {
+        this.draggable.waitForDisplayed()
+        this.draggable.dragAndDrop(this.droppable)
+    };
+
+  
+    dragColumnAToColumnB() {
+        this.columnA.waitForDisplayed()
+        this.columnA.dragAndDrop(this.columnB)
+    };
+
+
+
+    sendTextToBody(text) {
+        this.iframeBody.waitForDisplayed()
+        this.iframeBody.clearValue()
+        this.iframeBody.click()
+        this.iframeBody.keys(text)
+    };
+
+
+
+    clickHereLink() {
+        this.hereLink.waitForDisplayed()
+        this.hereLink.click()
+    };
+
+
     scrollToPageFooter() {
         this.pageFooter.moveTo(1,1);
     };
