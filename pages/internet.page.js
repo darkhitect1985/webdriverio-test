@@ -57,6 +57,51 @@ class Internet {
     get inputEnabledField() { return $('#input-example input')};
 
 
+    clickEnableButton() {
+        this.enableButton.waitForDisplayed()
+        this.enableButton.click()
+    };
+
+
+    clickPageButton() {
+        this.pageButton.waitForDisplayed()
+        this.pageButton.click()
+    };
+
+
+    clickExampleButton() {
+        this.exampleButton.waitForDisplayed()
+        this.exampleButton.click()
+    };
+
+    clickDeleteButton(index) {
+        this.deleteButton(index).waitForDisplayed()
+        this.deleteButton(index).click()
+    };
+
+
+    clickJavascriptAlertButton(index) {
+        this.javascriptAlertButton(index).waitForDisplayed()
+        this.javascriptAlertButton(index).click()
+    };
+
+
+    clickDropdownMenu() {
+        this.dropdownMenu.waitForDisplayed()
+        this.dropdownMenu.click()
+    };
+
+    clickDropdownMenuOption1() {
+        this.dropdownMenuOption1.waitForDisplayed()
+        this.dropdownMenuOption1.click()
+    };
+
+    clickDropdownMenuOption2() {
+        this.dropdownMenuOption2.waitForDisplayed()
+        this.dropdownMenuOption2.click()
+    };
+
+
     dragDraggableToDroppable() {
         this.draggable.waitForDisplayed()
         this.draggable.dragAndDrop(this.droppable)
